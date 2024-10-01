@@ -40,11 +40,11 @@ Upon applied, the solution module exports the following outputs:
 This solution module is intended to be used either on its own or as part of a higher-level module. 
 
 ### Create model
-If `kubeflow` model has is created outside of this solution module (ie in a higer-level module), then this should be deployed with `create_model` set to `false`.
+If `kubeflow` model is created outside of this solution module (ie in a higer-level module), then this should be deployed with `create_model` set to `false`.
 ```
 terraform apply -var create_model=false
 ```
-By default, it is set to `true` in order to enable the Charmed Kubeflow's standalone deployment.
+By default, it is set to `true` in order to enable the Charmed Kubeflow's standalone deployment. Note also that this takes into account that Kubeflow can be deployed only to a namespace called `kubeflow`.
 
 ### COS configuration
 
