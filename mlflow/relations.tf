@@ -1,5 +1,5 @@
 resource "juju_integration" "mlflow_server_minio_object_storage" {
-  model = juju_model.kubeflow.name
+  model = juju_model.kubeflow[0].name
 
   application {
     name     = module.mlflow_server.app_name
@@ -13,7 +13,7 @@ resource "juju_integration" "mlflow_server_minio_object_storage" {
 }
 
 resource "juju_integration" "mlflow_server_mlflow_mysql_client" {
-  model = juju_model.kubeflow.name
+  model = juju_model.kubeflow[0].name
 
   application {
     name     = module.mlflow_server.app_name
@@ -21,7 +21,7 @@ resource "juju_integration" "mlflow_server_mlflow_mysql_client" {
   }
 
   application {
-    name     = juju_application.mlflow_mysql.name
+    name     = module.mlflow_mysql.application_name
     endpoint = "database"
   }
 }
