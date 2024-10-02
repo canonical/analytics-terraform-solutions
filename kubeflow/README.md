@@ -24,7 +24,6 @@ The solution module offers the following configurable inputs:
 | `minio_size`| string | MinIO database storage size | False |
 | `mlmd_size`| string | MLMD database storage size | False |
 | `no_proxy`| string | Value of the no_proxy environment variable | False |
-| `no_proxy`| string | Value of the no_proxy environment variable | False |
 | `public_url`| string | Public URL of Kubeflow for auth/OIDC | False |
 
 ### Outputs
