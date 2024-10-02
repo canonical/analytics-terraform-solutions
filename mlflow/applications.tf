@@ -1,7 +1,7 @@
 module "minio" {
   app_name   = "mlflow-minio"
   source     = "git::https://github.com/canonical/minio-operator//terraform?ref=track/ckf-1.9"
-  model_name = juju_model.kubeflow[0].name
+  model_name = var.create_model ? juju_model.kubeflow[0].name : var.model_name
   storage_directives = {
     minio-data = var.minio_size
   }
@@ -9,13 +9,13 @@ module "minio" {
 
 module "mlflow_server" {
   source     = "git::https://github.com/canonical/mlflow-operator//terraform?ref=track/2.15"
-  model_name = juju_model.kubeflow[0].name
+  model_name = var.create_model ? juju_model.kubeflow[0].name : var.model_name
 }
 
 module "mlflow_mysql" {
   # TODO: Update mlflow-mysql once https://github.com/canonical/terraform-modules/pull/20 is merged
   source              = "git::https://github.com/paulomach/terraform-modules//modules/k8s/mysql-ha-simple?ref=feature/simple-ha-module"
-  juju_model_name     = var.create_model ? juju_model.kubeflow[0].name : local.model_name
+  juju_model_name     = var.create_model ? juju_model.kubeflow[0].name : var.model_name
   mysql_app_name      = "mlflow-mysql"
   mysql_charm_channel = "8.0/stable"
   mysql_charm_units   = 1

@@ -12,7 +12,7 @@ resource "juju_integration" "mlflow_server_minio_object_storage" {
   }
 }
 
-resource "juju_integration" "mlflow_server_mlflow_mysql_client" {
+resource "juju_integration" "mlflow_server_mlflow_mysql_relational_db" {
   model = juju_model.kubeflow[0].name
 
   application {

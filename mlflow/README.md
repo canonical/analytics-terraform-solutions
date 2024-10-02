@@ -27,7 +27,7 @@ Upon applying, the solution module exports the following outputs:
 This solution module is intended to be used either on its own or as part of a higher-level module.
 
 ### Create Model
-If the `kubeflow` model is created outside of this solution module (e.g., in a higher-level module), deploy MLFlow with `create_model` set to `false`:
+If a model is created outside of this solution module (e.g., in a higher-level module), deploy MLFlow with `create_model` set to `false`:
 
 ```bash
 terraform apply -var create_model=false
@@ -55,5 +55,5 @@ terraform apply -var mlflow_mysql_size="5G"
 In case you want to deploy MLFlow into an existing Juju model, instead of creating a new one, use the `model_name` input to specify the model:
 
 ```bash
-terraform apply -var model_name="existing-kubeflow-model"
+terraform apply -var model_name="existing-kubeflow-model -var create_model=false"
 ```
