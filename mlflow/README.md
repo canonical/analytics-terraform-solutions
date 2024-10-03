@@ -12,14 +12,14 @@ The solution module offers the following configurable inputs:
 | `create_model`       | bool   | Allows skipping Juju model creation and re-using an existing model | False    |
 | `minio_size`         | string | MinIO storage size allocation            | False    |
 | `mlflow_mysql_size`  | string | MySQL storage size allocation for MLFlow | False    |
-| `model_name`         | string | Name of the Juju model for deployment    | True     |
+| `model`              | string | Name of the Juju model for deployment    | True     |
 
 ### Outputs
 Upon applying, the solution module exports the following outputs:
 
 | Name                | Description                                     |
 |---------------------|-------------------------------------------------|
-| `model_name`          | Model name that Charmed MLflow is deployed on |
+| `model`             | Model name that Charmed MLflow is deployed on |
 
 
 ## Usage
@@ -55,5 +55,5 @@ terraform apply -var mlflow_mysql_size="5G"
 In case you want to deploy MLFlow into an existing Juju model, instead of creating a new one, use the `model_name` input to specify the model:
 
 ```bash
-terraform apply -var model_name="existing-kubeflow-model -var create_model=false"
+terraform apply -var model="existing-kubeflow-model -var create_model=false"
 ```

@@ -34,7 +34,7 @@ variable "mlflow_mysql_size" {
   default     = "10G"
 }
 
-variable "model_name" {
+variable "model" {
   description = "Model name"
   type        = string
   default     = "kubeflow"
