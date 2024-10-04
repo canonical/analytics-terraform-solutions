@@ -21,7 +21,7 @@ resource "juju_integration" "argo_controller_grafana_agent_k8s_grafana_dashboard
 
   application {
     name     = module.argo_controller.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.argo_controller.provides.grafana_dashboard
   }
 
   application {
@@ -36,7 +36,7 @@ resource "juju_integration" "argo_controller_grafana_agent_k8s_metrics_endpoint"
 
   application {
     name     = module.argo_controller.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.argo_controller.provides.metrics_endpoint
   }
 
   application {
@@ -51,7 +51,7 @@ resource "juju_integration" "argo_controller_grafana_agent_k8s_grafana_logging" 
 
   application {
     name     = module.argo_controller.app_name
-    endpoint = "logging"
+    endpoint = module.argo_controller.requires.logging
   }
 
   application {
@@ -66,7 +66,7 @@ resource "juju_integration" "admission_webhook_grafana_agent_k8s_grafana_logging
 
   application {
     name     = module.admission_webhook.app_name
-    endpoint = "logging"
+    endpoint = module.admission_webhook.requires.logging
   }
 
   application {
@@ -81,7 +81,7 @@ resource "juju_integration" "dex_auth_grafana_agent_k8s_grafana_dashboard" {
 
   application {
     name     = module.dex_auth.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.dex_auth.provides.grafana_dashboard
   }
 
   application {
@@ -96,7 +96,7 @@ resource "juju_integration" "dex_auth_grafana_agent_k8s_metrics_endpoint" {
 
   application {
     name     = module.dex_auth.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.dex_auth.provides.metrics_endpoint
   }
 
   application {
@@ -111,7 +111,7 @@ resource "juju_integration" "dex_auth_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.dex_auth.app_name
-    endpoint = "logging"
+    endpoint = module.dex_auth.requires.logging
   }
 
   application {
@@ -126,7 +126,7 @@ resource "juju_integration" "envoy_grafana_agent_k8s_grafana_dashboard" {
 
   application {
     name     = module.envoy.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.envoy.provides.grafana_dashboard
   }
 
   application {
@@ -141,7 +141,7 @@ resource "juju_integration" "envoy_grafana_agent_k8s_metrics_endpoint" {
 
   application {
     name     = module.envoy.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.envoy.provides.metrics_endpoint
   }
 
   application {
@@ -156,7 +156,7 @@ resource "juju_integration" "envoy_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.envoy.app_name
-    endpoint = "logging"
+    endpoint = module.envoy.requires.logging
   }
 
   application {
@@ -171,7 +171,7 @@ resource "juju_integration" "istio_ingressgateway_grafana_agent_k8s_metrics_endp
 
   application {
     name     = module.istio_ingressgateway.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.istio_ingressgateway.provides.metrics_endpoint
   }
 
   application {
@@ -186,7 +186,7 @@ resource "juju_integration" "istio_pilot_grafana_agent_k8s_grafana_dashboard" {
 
   application {
     name     = module.istio_pilot.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.istio_pilot.provides.grafana_dashboard
   }
 
   application {
@@ -201,7 +201,7 @@ resource "juju_integration" "istio_pilot_grafana_agent_k8s_metrics_endpoint" {
 
   application {
     name     = module.istio_pilot.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.istio_pilot.provides.metrics_endpoint
   }
 
   application {
@@ -216,7 +216,7 @@ resource "juju_integration" "jupyter_controller_grafana_agent_k8s_grafana_dashbo
 
   application {
     name     = module.jupyter_controller.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.jupyter_controller.provides.grafana_dashboard
   }
 
   application {
@@ -231,7 +231,7 @@ resource "juju_integration" "jupyter_controller_grafana_agent_k8s_metrics_endpoi
 
   application {
     name     = module.jupyter_controller.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.jupyter_controller.provides.metrics_endpoint
   }
 
   application {
@@ -246,7 +246,7 @@ resource "juju_integration" "jupyter_controller_grafana_agent_k8s_grafana_loggin
 
   application {
     name     = module.jupyter_controller.app_name
-    endpoint = "logging"
+    endpoint = module.jupyter_controller.requires.logging
   }
 
   application {
@@ -261,7 +261,7 @@ resource "juju_integration" "jupyter_ui_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.jupyter_ui.app_name
-    endpoint = "logging"
+    endpoint = module.jupyter_ui.requires.logging
   }
 
   application {
@@ -276,7 +276,7 @@ resource "juju_integration" "katib_controller_grafana_agent_k8s_grafana_dashboar
 
   application {
     name     = module.katib_controller.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.katib_controller.provides.grafana_dashboard
   }
 
   application {
@@ -291,7 +291,7 @@ resource "juju_integration" "katib_controller_grafana_agent_k8s_metrics_endpoint
 
   application {
     name     = module.katib_controller.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.katib_controller.provides.metrics_endpoint
   }
 
   application {
@@ -306,7 +306,7 @@ resource "juju_integration" "katib_controller_grafana_agent_k8s_grafana_logging"
 
   application {
     name     = module.katib_controller.app_name
-    endpoint = "logging"
+    endpoint = module.katib_controller.requires.logging
   }
 
   application {
@@ -366,7 +366,7 @@ resource "juju_integration" "katib_db_manager_grafana_agent_k8s_grafana_logging"
 
   application {
     name     = module.katib_db_manager.app_name
-    endpoint = "logging"
+    endpoint = module.katib_db_manager.requires.logging
   }
 
   application {
@@ -381,7 +381,7 @@ resource "juju_integration" "katib_ui_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.katib_ui.app_name
-    endpoint = "logging"
+    endpoint = module.katib_ui.requires.logging
   }
 
   application {
@@ -396,7 +396,7 @@ resource "juju_integration" "kfp_api_grafana_agent_k8s_grafana_dashboard" {
 
   application {
     name     = module.kfp_api.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.kfp_api.provides.grafana_dashboard
   }
 
   application {
@@ -411,7 +411,7 @@ resource "juju_integration" "kfp_api_grafana_agent_k8s_metrics_endpoint" {
 
   application {
     name     = module.kfp_api.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.kfp_api.provides.metrics_endpoint
   }
 
   application {
@@ -426,7 +426,7 @@ resource "juju_integration" "kfp_api_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.kfp_api.app_name
-    endpoint = "logging"
+    endpoint = module.kfp_api.requires.logging
   }
 
   application {
@@ -487,7 +487,7 @@ resource "juju_integration" "kfp_metadata_writer_grafana_agent_k8s_grafana_loggi
 
   application {
     name     = module.kfp_metadata_writer.app_name
-    endpoint = "logging"
+    endpoint = module.kfp_metadata_writer.requires.logging
   }
 
   application {
@@ -502,7 +502,7 @@ resource "juju_integration" "kfp_persistence_grafana_agent_k8s_grafana_logging" 
 
   application {
     name     = module.kfp_persistence.app_name
-    endpoint = "logging"
+    endpoint = module.kfp_persistence.requires.logging
   }
 
   application {
@@ -517,7 +517,7 @@ resource "juju_integration" "kfp_profile_controller_grafana_agent_k8s_grafana_lo
 
   application {
     name     = module.kfp_profile_controller.app_name
-    endpoint = "logging"
+    endpoint = module.kfp_profile_controller.requires.logging
   }
 
   application {
@@ -532,7 +532,7 @@ resource "juju_integration" "kfp_schedwf_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.kfp_schedwf.app_name
-    endpoint = "logging"
+    endpoint = module.kfp_schedwf.requires.logging
   }
 
   application {
@@ -547,7 +547,7 @@ resource "juju_integration" "kfp_ui_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.kfp_ui.app_name
-    endpoint = "logging"
+    endpoint = module.kfp_ui.requires.logging
   }
 
   application {
@@ -562,7 +562,7 @@ resource "juju_integration" "kfp_viewer_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.kfp_viewer.app_name
-    endpoint = "logging"
+    endpoint = module.kfp_viewer.requires.logging
   }
 
   application {
@@ -577,7 +577,7 @@ resource "juju_integration" "kfp_viz_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.kfp_viz.app_name
-    endpoint = "logging"
+    endpoint = module.kfp_viz.requires.logging
   }
 
   application {
@@ -592,12 +592,12 @@ resource "juju_integration" "knative_eventing_knative_operator_otel_collector" {
 
   application {
     name     = module.knative_eventing.app_name
-    endpoint = "otel-collector"
+    endpoint = module.knative_eventing.requires.otel_collector
   }
 
   application {
     name     = module.knative_operator.app_name
-    endpoint = "otel-collector"
+    endpoint = module.knative_operator.provides.otel_collector
   }
 }
 
@@ -607,12 +607,12 @@ resource "juju_integration" "knative_serving_knative_operator_otel_collector" {
 
   application {
     name     = module.knative_serving.app_name
-    endpoint = "otel-collector"
+    endpoint = module.knative_serving.requires.otel_collector
   }
 
   application {
     name     = module.knative_operator.app_name
-    endpoint = "otel-collector"
+    endpoint = module.knative_operator.provides.otel_collector
   }
 }
 
@@ -622,7 +622,7 @@ resource "juju_integration" "knative_operator_grafana_agent_k8s_metrics_endpoint
 
   application {
     name     = module.knative_operator.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.knative_operator.provides.metrics_endpoint
   }
 
   application {
@@ -637,7 +637,7 @@ resource "juju_integration" "knative_operator_grafana_agent_k8s_grafana_logging"
 
   application {
     name     = module.knative_operator.app_name
-    endpoint = "logging"
+    endpoint = module.knative_operator.requires.logging
   }
 
   application {
@@ -652,7 +652,7 @@ resource "juju_integration" "kserve_controller_grafana_agent_k8s_metrics_endpoin
 
   application {
     name     = module.kserve_controller.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.kserve_controller.provides.metrics_endpoint
   }
 
   application {
@@ -667,7 +667,7 @@ resource "juju_integration" "kserve_controller_grafana_agent_k8s_grafana_logging
 
   application {
     name     = module.kserve_controller.app_name
-    endpoint = "logging"
+    endpoint = module.kserve_controller.requires.logging
   }
 
   application {
@@ -682,7 +682,7 @@ resource "juju_integration" "kubeflow_dashboard_grafana_agent_k8s_grafana_dashbo
 
   application {
     name     = module.kubeflow_dashboard.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.kubeflow_dashboard.provides.grafana_dashboard
   }
 
   application {
@@ -697,7 +697,7 @@ resource "juju_integration" "kubeflow_dashboard_grafana_agent_k8s_grafana_loggin
 
   application {
     name     = module.kubeflow_dashboard.app_name
-    endpoint = "logging"
+    endpoint = module.kubeflow_dashboard.requires.logging
   }
 
   application {
@@ -713,7 +713,7 @@ resource "juju_integration" "kubeflow_profiles_grafana_agent_k8s_metrics_endpoin
 
   application {
     name     = module.kubeflow_profiles.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.kubeflow_profiles.provides.metrics_endpoint
   }
 
   application {
@@ -728,7 +728,7 @@ resource "juju_integration" "kubeflow_profiles_grafana_agent_k8s_grafana_logging
 
   application {
     name     = module.kubeflow_profiles.app_name
-    endpoint = "logging"
+    endpoint = module.kubeflow_profiles.requires.logging
   }
 
   application {
@@ -743,7 +743,7 @@ resource "juju_integration" "kubeflow_volumes_grafana_agent_k8s_grafana_logging"
 
   application {
     name     = module.kubeflow_volumes.app_name
-    endpoint = "logging"
+    endpoint = module.kubeflow_volumes.requires.logging
   }
 
   application {
@@ -758,7 +758,7 @@ resource "juju_integration" "metacontroller_operator_grafana_agent_k8s_grafana_d
 
   application {
     name     = module.metacontroller_operator.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.metacontroller_operator.provides.grafana_dashboard
   }
 
   application {
@@ -773,7 +773,7 @@ resource "juju_integration" "metacontroller_operator_grafana_agent_k8s_metrics_e
 
   application {
     name     = module.metacontroller_operator.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.metacontroller_operator.provides.metrics_endpoint
   }
 
   application {
@@ -788,7 +788,7 @@ resource "juju_integration" "mlmd_grafana_agent_k8s_grafana_logging" {
 
   application {
     name     = module.mlmd.app_name
-    endpoint = "logging"
+    endpoint = module.mlmd.requires.logging
   }
 
   application {
@@ -803,7 +803,7 @@ resource "juju_integration" "minio_grafana_agent_k8s_grafana_dashboard" {
 
   application {
     name     = module.minio.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.minio.provides.grafana_dashboard
   }
 
   application {
@@ -818,7 +818,7 @@ resource "juju_integration" "minio_grafana_agent_k8s_metrics_endpoint" {
 
   application {
     name     = module.minio.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.minio.provides.metrics_endpoint
   }
 
   application {
@@ -833,7 +833,7 @@ resource "juju_integration" "oidc_gatekeeper_grafana_agent_k8s_grafana_logging" 
 
   application {
     name     = module.oidc_gatekeeper.app_name
-    endpoint = "logging"
+    endpoint = module.oidc_gatekeeper.requires.logging
   }
 
   application {
@@ -848,7 +848,7 @@ resource "juju_integration" "pvcviewer_operator_grafana_agent_k8s_grafana_dashbo
 
   application {
     name     = module.pvcviewer_operator.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.pvcviewer_operator.provides.grafana_dashboard
   }
 
   application {
@@ -863,7 +863,7 @@ resource "juju_integration" "pvcviewer_operator_grafana_agent_k8s_metrics_endpoi
 
   application {
     name     = module.pvcviewer_operator.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.pvcviewer_operator.provides.metrics_endpoint
   }
 
   application {
@@ -878,7 +878,7 @@ resource "juju_integration" "pvcviewer_operator_grafana_agent_k8s_grafana_loggin
 
   application {
     name     = module.pvcviewer_operator.app_name
-    endpoint = "logging"
+    endpoint = module.pvcviewer_operator.requires.logging
   }
 
   application {
@@ -893,7 +893,7 @@ resource "juju_integration" "tensorboard_controller_grafana_agent_k8s_metrics_en
 
   application {
     name     = module.tensorboard_controller.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.tensorboard_controller.provides.metrics_endpoint
   }
 
   application {
@@ -908,7 +908,7 @@ resource "juju_integration" "tensorboard_controller_grafana_agent_k8s_grafana_lo
 
   application {
     name     = module.tensorboard_controller.app_name
-    endpoint = "logging"
+    endpoint = module.tensorboard_controller.requires.logging
   }
 
   application {
@@ -923,7 +923,7 @@ resource "juju_integration" "tensorboards_web_app_grafana_agent_k8s_grafana_logg
 
   application {
     name     = module.tensorboards_web_app.app_name
-    endpoint = "logging"
+    endpoint = module.tensorboards_web_app.requires.logging
   }
 
   application {
@@ -938,7 +938,7 @@ resource "juju_integration" "training_operator_grafana_agent_k8s_grafana_dashboa
 
   application {
     name     = module.training_operator.app_name
-    endpoint = "grafana-dashboard"
+    endpoint = module.training_operator.provides.grafana_dashboard
   }
 
   application {
@@ -953,7 +953,7 @@ resource "juju_integration" "training_operator_grafana_agent_k8s_metrics_endpoin
 
   application {
     name     = module.training_operator.app_name
-    endpoint = "metrics-endpoint"
+    endpoint = module.training_operator.provides.metrics_endpoint
   }
 
   application {
