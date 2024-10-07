@@ -11,6 +11,7 @@ resource "juju_application" "grafana_agent_k8s" {
   storage_directives = {
     data = var.grafana_agent_k8s_size
   }
+  revision = var.grafana_agent_k8s_revision
   trust = true
   units = 1
 }

@@ -10,6 +10,7 @@ The solution module offers the following configurable inputs:
 
 | Name | Type | Description | Required |
 | - | - | - | - |
+| `<charm_name>_revision`| number | For each charm of the solution, the revision of the charm to deploy | False |
 | `cos_configuration`| bool | Boolean value that enables COS configuration | False |
 | `create_model`| bool | Allows to skip Juju model creation and re-use a model created in a higher level module | False |
 | `dex_connectors`| string | dex-auth connectors in yaml format | False |
