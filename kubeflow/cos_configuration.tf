@@ -12,8 +12,8 @@ resource "juju_application" "grafana_agent_k8s" {
     data = var.grafana_agent_k8s_size
   }
   revision = var.grafana_agent_k8s_revision
-  trust = true
-  units = 1
+  trust    = true
+  units    = 1
 }
 
 resource "juju_integration" "argo_controller_grafana_agent_k8s_grafana_dashboard" {
