@@ -68,7 +68,7 @@ module "katib_controller" {
 
 module "katib_db" {
   # TODO: Update kfp-db once https://github.com/canonical/terraform-modules/pull/20 is merged
-  source              = "git::https://github.com/paulomach/terraform-modules//modules/k8s/mysql-ha-simple?ref=feature/simple-ha-module"
+  source              = "git::https://github.com/paulomach/terraform-modules//modules/k8s/mysql?ref=feature/simple-ha-module"
   juju_model_name     = var.create_model ? juju_model.kubeflow[0].name : local.model_name
   mysql_app_name      = "katib-db"
   mysql_charm_channel = "8.0/stable"
@@ -103,7 +103,7 @@ module "kfp_api" {
 
 module "kfp_db" {
   # TODO: Update kfp-db once https://github.com/canonical/terraform-modules/pull/20 is merged
-  source              = "git::https://github.com/paulomach/terraform-modules//modules/k8s/mysql-ha-simple?ref=feature/simple-ha-module"
+  source              = "git::https://github.com/paulomach/terraform-modules//modules/k8s/mysql?ref=feature/simple-ha-module"
   juju_model_name     = var.create_model ? juju_model.kubeflow[0].name : local.model_name
   mysql_app_name      = "kfp-db"
   mysql_charm_channel = "8.0/stable"
