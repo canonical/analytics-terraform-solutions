@@ -5,13 +5,13 @@ resource "juju_application" "grafana_agent_k8s" {
   charm {
     name    = "grafana-agent-k8s"
     channel = "latest/stable"
+    revision = var.grafana_agent_k8s_revision
   }
   model = var.create_model ? juju_model.kubeflow[0].name : local.model_name
   name  = "grafana-agent-k8s-kubeflow"
   storage_directives = {
     data = var.grafana_agent_k8s_size
   }
-  revision = var.grafana_agent_k8s_revision
   trust    = true
   units    = 1
 }
